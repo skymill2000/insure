@@ -12,7 +12,7 @@ const Hello = () => {
 
     return (
         <>
-            <div>Hello world in compoenet</div>
+            <div style={{color : 'red'}}>Hello world in compoenet</div>
             <div>{myNameWithState}</div>
             <button onClick={nameChange}>이름을 변경합니다.</button>
         </>

@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 const ListItem = ({number, handleClick}) => {
+    const insideClick = () =>{
+        alert(number);
+    }
     return (
         <>
-            <div>{number}<button onClick={handleClick}>{number}클릭</button></div>
+            <div>{number}<button onClick={insideClick}>{number}클릭</button></div>
         </>
     );
 }

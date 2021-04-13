@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Hello from './component/Hello';
+import Hello2 from './component/Hello2';
 import ListItem from './component/ListItem';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
           1. 컴포넌트 코드 추가 작성
           2. 라우팅 연결
         */}
-        <Route path={"/test"} component={}></Route>
+        <Route path={"/test"} component={Hello2}></Route>
       </Switch>
     </BrowserRouter>
     </>

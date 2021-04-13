@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-const ListItem = ({number}) => {
+const ListItem = ({number, handleClick}) => {
     return (
         <>
-            <div>{number}</div>
+            <div>{number}<button onClick={handleClick}>{number}클릭</button></div>
         </>
     );
 }

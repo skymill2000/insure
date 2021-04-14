@@ -13,7 +13,7 @@ const Hello = () => {
         setmyNameWithState('유장비');
     }
     const getNewApi = () =>{
-        axios.get('https://newsapi.org/v2/everything?q=intel&from=2021-04-13&sortBy=publishedAt&apiKey=78bc6ddd8cdb48ceac76f5f9b9dfc4c5')
+        axios.get('https://newsapi.org/v2/everything?q=intel&from=2021-04-13&sortBy=publishedAt&apiKey=a589daeaa7874c0da4467e386fc5e592')
             .then(function (response) {
                 console.log(response.data.articles);
                 setNews(response.data.articles);

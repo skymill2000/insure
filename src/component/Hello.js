@@ -4,6 +4,7 @@ import axios from 'axios'
 const Hello = () => {
     let myName = "hello gwanwoo"
     let [myNameWithState, setmyNameWithState] = useState('유관우');
+    let [myNameWithState2, setmyNameWithState2] = useState('유관우');
     const [news, setNews] = useState([]);
     const nameChange = () => {
         console.log("이름이 바뀝니다.")
@@ -26,11 +27,17 @@ const Hello = () => {
         });
     }
 
+    const handleTextChange = (e) =>{
+        console.log(e.target.value);
+    }
+
     return (
         <>
             <div style={{color : 'red'}}>Hello world in compoenet</div>
             <div>{myNameWithState}</div>
             <button onClick={getNewApi}>이름을 변경합니다.</button>
+            <br></br>
+            <input type="text" onChange={handleTextChange}></input>
             {news.map((n) => {
                 return (<><p>{n.title}</p></>)
             })}

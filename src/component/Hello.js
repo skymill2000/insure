@@ -34,7 +34,7 @@ const Hello = () => {
 
     return (
         <>
-            <div style={{color : 'red'}}>Hello world in compoenet</div>
+            <div style={{color : 'red', fontSize : "30px", fontWeight : "bold"}}>Hello world in compoenet</div>
             <div>{myNameWithState}</div>
             <button onClick={getNewApi}>이름을 변경합니다.</button>
             <br></br>

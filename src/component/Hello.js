@@ -28,7 +28,8 @@ const Hello = () => {
     }
 
     const handleTextChange = (e) =>{
-        console.log(e.target.value);
+        const {value, name} = e.target;
+        setmyNameWithState(value);
     }
 
     return (

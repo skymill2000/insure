@@ -9,6 +9,8 @@ import axios from 'axios'
 
 const NewsSearch = () => {
     const [searchText, setSearchText] = useState('');
+    const [news, setNews] = useState([]);
+
     const changeText = (e) =>{
         const {value, name} = e.target;
         console.log(value);
@@ -34,6 +36,7 @@ const NewsSearch = () => {
         axios(option)
         .then(function (response) {
             console.log(response.data.articles);
+            setNews(response.data.articles);
         })
         .catch(function (error) {
             // handle error
@@ -42,6 +45,7 @@ const NewsSearch = () => {
         .then(function () {
             // always executed
         });
+
     }
 
     return (
@@ -49,7 +53,18 @@ const NewsSearch = () => {
             <Header title={'뉴스검색'}></Header>
             <SearchTool changeText={changeText} clickBtn={clickBtn}></SearchTool>
             {/* array.map */}
-            <SearchResult></SearchResult>
+            {news.map((n) => {
+                return (
+                <SearchResult 
+                    title={n.title} 
+                    description={n.description} 
+                    author={n.author} 
+                    articleUrl={n.url}>
+                    </SearchResult>
+                    )
+            })}
+
+
         </>
     );
 }

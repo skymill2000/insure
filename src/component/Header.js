@@ -6,6 +6,7 @@ const HeaderTitle = styled.div`
     font-size : 15px;
     text-align : center;
     border : 1px solid #dfdfdf;
+
 `
 
 const Header = ({title}) => {

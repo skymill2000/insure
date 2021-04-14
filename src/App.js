@@ -3,6 +3,7 @@ import Hello from './component/Hello';
 import Hello2 from './component/Hello2';
 import ListItem from './component/ListItem';
 import StyledComponentTest from './component/StyledComponentTest';
+import NewsSearch from './pages/NewsSearch';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         */}
         <Route path={"/test"} component={Hello2}></Route>
         <Route path={"/styled"} component={StyledComponentTest}></Route>
+        <Route path={"/news"} component={NewsSearch}></Route>
       </Switch>
     </BrowserRouter>
     </>

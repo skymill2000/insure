@@ -27,11 +27,11 @@ const NewsSearch = () => {
                 'q': searchText,
                 'from':'2021-04-13',
                 'sortBy': 'publishedAt',
-                'apiKey': 'a589daeaa7874c0da4467e386fc5e592'            
+                'apiKey': 'c97361fe1fb44aad85885cc1a63de7fe'            
             }
         }
 
-        axios.get(option)
+        axios(option)
         .then(function (response) {
             console.log(response.data.articles);
         })
@@ -48,6 +48,7 @@ const NewsSearch = () => {
         <>
             <Header title={'뉴스검색'}></Header>
             <SearchTool changeText={changeText} clickBtn={clickBtn}></SearchTool>
+            {/* array.map */}
             <SearchResult></SearchResult>
         </>
     );

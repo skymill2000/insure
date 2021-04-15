@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from '../component/Header';
 import axios from 'axios'
 import cryptoMy from '../lib/apiCrypto'
+import SearchTool from '../component/SearchTool';
 //LOGIC
 const AuthTest = () => {
     const dataBody = {
@@ -169,6 +170,18 @@ const AuthTest = () => {
         });
     }
 
+    const [userSsn, setUserSsn] = useState('')
+    const ssnChange = (e) =>{
+        const {value} = e.target;
+        console.log(value);
+        setUserSsn(value);
+    }
+
+    const encrpytSsnBtn = () =>{
+        cryptoMy.ssnEncrypt(userSsn);
+        console.log(userSsn);
+    }
+
      return (
         <>
             <Header title={'이용기관 ACCESS Token'}></Header>
@@ -178,6 +191,7 @@ const AuthTest = () => {
             <p>{masterResult}</p>
             <button onClick={getUserAccessToken}>이용자 토큰 발급</button>
             <p>{userAccessToken}</p>
+            <SearchTool changeText={ssnChange} clickBtn={encrpytSsnBtn}></SearchTool>
         </>
     );
 }

@@ -4,6 +4,7 @@ import Hello2 from './component/Hello2';
 import ListItem from './component/ListItem';
 import StyledComponentTest from './component/StyledComponentTest';
 import AuthTest from './pages/AuthTest';
+import FlightInput from './pages/FlightInput';
 import NewsSearch from './pages/NewsSearch';
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
         <Route path={"/styled"} component={StyledComponentTest}></Route>
         <Route path={"/news"} component={NewsSearch}></Route>
         <Route path={"/authTest"} component={AuthTest}></Route>
+        {/* practice */}
+
+        <Route path={"/inputflight"} component={FlightInput}></Route>
       </Switch>
     </BrowserRouter>
     </>

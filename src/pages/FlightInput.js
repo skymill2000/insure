@@ -15,14 +15,15 @@ const FlightInput = () => {
     const [inboundDate, setinboundDate] = useState('2021-04-20');
 
 
-    console.log('https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/KRW/ko/'+
-    + departureLocation + '/' + destinationLoacation + '/2021-05-01')
 
     const clickBtn = () => {
+        console.log('https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/KRW/ko/'+
+        departureLocation + '/' + destinationLoacation + '/2021-05-01')
+    
         const options = {
             method: 'GET',
             url: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/ko/KRW/ko/'+
-            + departureLocation + '/' + destinationLoacation + '/2021-09-01',
+            departureLocation + '/' + destinationLoacation + '/2021-09-01',
             params: {inboundpartialdate: '2021-12-01'},
             headers: {
               'x-rapidapi-key': '3306ecbfffmsha6126fa12e98531p13e362jsndf48fa6dfadb',

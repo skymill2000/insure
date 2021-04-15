@@ -13,6 +13,8 @@ const FlightInput = () => {
     const [destinationLoacation, setdestinationLoacation] = useState('JFK-sky');
     const [departureDate, setdepartureDate] = useState('2021-04-15');
     const [inboundDate, setinboundDate] = useState('2021-04-20');
+    const [plan, setPlan] = useState(undefined);
+
 
 
 
@@ -33,6 +35,7 @@ const FlightInput = () => {
           
           axios.request(options).then(function (response) {
               console.log(response.data);
+              setPlan(response.data);
           }).catch(function (error) {
               console.error(error);
           });          
@@ -68,6 +71,16 @@ const FlightInput = () => {
                 <option value="JFK-sky">JFK</option>
                 <option value="JFK-sky">JFK</option>
             </select>
+            {plan !== undefined &&
+                <>
+                    <p>출발지 : {plan.Places[0].CityName}</p>
+                    <p>도착지 : {plan.Places[1].CityName}</p>
+                    <p>운항사 : {plan.Carriers[0].Name}</p>
+                    <p>출발시간 : {plan.Quotes[0].QuoteDateTime}</p>
+                    <p>최저가 : {plan.Quotes[0].MinPrice}원</p>
+                </>
+            }
+            <button onClick={() => alert('보험에 가입하시겠습니까?')}> 선택완료 </button>
         </>
 
     );

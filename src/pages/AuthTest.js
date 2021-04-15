@@ -10,7 +10,7 @@ const AuthTest = () => {
         //CONSOLE.LOG 요청에 대한 결과 출력하기
         const option = {
             method: 'post',
-            url: 'https://dev-gateway.dbins.co.kr:8903/v1.0/cert/oauth2.0/clientCredential',
+            url: '/v1.0/cert/oauth2.0/clientCredential',
             headers: {
                 'appKey': 'l7xxe840074288574eeabb346f15f7a3d6af', 
                 'appSecret': 'f8449d6220b54dddb892a262409c3e07', 

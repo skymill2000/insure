@@ -84,6 +84,7 @@ const AuthTest = () => {
     
     const [companyAccessToken, setcompanyAccessToken] = useState('');
     const [masterResult, setmasterResult] = useState('');
+    const [userAccessToken, setuserAccessToken] = useState('');
     
 
     const getAccessToken = () => {
@@ -141,6 +142,34 @@ const AuthTest = () => {
             // always executed
         });
     }
+
+    const getUserAccessToken = () => {
+        const option = {
+            method: 'post',
+            url: '/v1.0/cert/oauth2.0/resourceOwner',
+            headers: {
+                'appKey': 'l7xxe840074288574eeabb346f15f7a3d6af', 
+                'appSecret': 'f8449d6220b54dddb892a262409c3e07', 
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': 'Bearer ' + companyAccessToken, 
+                'ci': 'E4PIs45uiscs8quYnySoQXuZKwjB66mE3Wqvw9gRuWOqMON3FiLQt+U4ZV42Y1+prQWpFWWnbKomShR+O5dHlg==',
+                'Content-Length': '0'
+            }
+        }
+        axios(option)
+        .then(function (response) {
+            console.log(response.data.dataBody.access_token);
+            setuserAccessToken(response.data.dataBody.access_token);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+    }
+
      return (
         <>
             <Header title={'이용기관 ACCESS Token'}></Header>
@@ -148,6 +177,8 @@ const AuthTest = () => {
             <p>{companyAccessToken}</p>
             <button onClick={getMaster}>마스터 증권</button>
             <p>{masterResult}</p>
+            <button onClick={getUserAccessToken}>이용자 토큰 발급</button>
+            <p>{userAccessToken}</p>
         </>
     );
 }

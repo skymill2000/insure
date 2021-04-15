@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const appKey = "l7xxe840074288574eeabb346f15f7a3d6af";
 const timeSt = "20210218190839";
+const caesar = require('./ceasar');
 
 const hsKey = (str) =>{
     const key = appKey + timeSt;
@@ -9,4 +10,5 @@ const hsKey = (str) =>{
     console.log(signed);
     return signed
 }
-hsKey('hello javascript');
+console.log(caesar.encrypt(6, 'hi how are you'));
+console.log(caesar.decrypt(9, 'no nuc gxk eua'));

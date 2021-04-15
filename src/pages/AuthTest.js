@@ -6,7 +6,6 @@ import axios from 'axios'
 //LOGIC
 const AuthTest = () => {
     const getAccessToken = () => {
-        console.log(searchText)
         //axios api 요청 만들기
         //CONSOLE.LOG 요청에 대한 결과 출력하기
         const option = {

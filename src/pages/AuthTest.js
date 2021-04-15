@@ -153,7 +153,6 @@ const AuthTest = () => {
                 'Content-Type': 'application/json; charset=utf-8',
                 'Authorization': 'Bearer ' + companyAccessToken, 
                 'ci': 'E4PIs45uiscs8quYnySoQXuZKwjB66mE3Wqvw9gRuWOqMON3FiLQt+U4ZV42Y1+prQWpFWWnbKomShR+O5dHlg==',
-                'Content-Length': '0'
             }
         }
         axios(option)

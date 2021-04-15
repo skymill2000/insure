@@ -23,8 +23,8 @@ const FlightInput = () => {
         const options = {
             method: 'GET',
             url: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/ko/KRW/ko/'+
-            departureLocation + '/' + destinationLoacation + '/2021-09-01',
-            params: {inboundpartialdate: '2021-12-01'},
+            departureLocation + '/' + destinationLoacation + '/' + departureDate,
+            params: {inboundpartialdate: inboundDate},
             headers: {
               'x-rapidapi-key': '3306ecbfffmsha6126fa12e98531p13e362jsndf48fa6dfadb',
               'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
@@ -45,6 +45,12 @@ const FlightInput = () => {
        if(name === 'destiInput'){
           setdestinationLoacation(value);
        }
+       if(name === 'departDate'){
+        setdestinationLoacation(value);
+         }
+        if(name === 'inboundDate'){
+            setdestinationLoacation(value);
+        }
 
     }
 
@@ -53,9 +59,15 @@ const FlightInput = () => {
             <Header title={'비행 데이터 입력'}></Header>
             출발지 : <input onChange={inputChange} value={departureLocation} name={'departInput'}></input> <br/>
             도착지 : <input onChange={inputChange} value={destinationLoacation} name={'destiInput'}></input> <br/>
-            출발일 : <input></input> <br/>
-            도착일 : <input></input> <br/>
+            출발일 : <input onChange={inputChange} value={departureDate} name={'departDate'}></input> <br/>
+            도착일 : <input onChange={inputChange} value={inboundDate} name={'inboundDate'}></input> <br/>
             <button onClick={clickBtn}>test</button>
+            <select>
+                <option value="JFK-sky">JFK</option>
+                <option value="ICN-sky">ICN</option>
+                <option value="JFK-sky">JFK</option>
+                <option value="JFK-sky">JFK</option>
+            </select>
         </>
 
     );

@@ -17,7 +17,6 @@ const AuthTest = () => {
                 'Content-Type': 'application/json; charset=utf-8'
             }
         }
-
         axios(option)
         .then(function (response) {
             console.log(response.data);

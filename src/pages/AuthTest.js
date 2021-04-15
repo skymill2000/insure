@@ -83,6 +83,7 @@ const AuthTest = () => {
     }
     
     const [companyAccessToken, setcompanyAccessToken] = useState('');
+    const [masterResult, setmasterResult] = useState('');
     
 
     const getAccessToken = () => {
@@ -128,7 +129,9 @@ const AuthTest = () => {
         }
         axios(option)
         .then(function (response) {
-            console.log(response.data);
+            const {isLogin, resCd} = response.data.dataBody;
+            console.log(isLogin);
+            setmasterResult(isLogin, resCd);
         })
         .catch(function (error) {
             // handle error
@@ -144,6 +147,7 @@ const AuthTest = () => {
             <button onClick={getAccessToken}>토큰발급</button>
             <p>{companyAccessToken}</p>
             <button onClick={getMaster}>마스터 증권</button>
+            <p>{masterResult}</p>
         </>
     );
 }

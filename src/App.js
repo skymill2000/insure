@@ -26,6 +26,7 @@ function App() {
 
         <Route path={"/inputflight"} component={FlightInput}></Route>
         <Route path={"/singupInsure"} component={SignupInsure}></Route>
+        <Route path={"/singupResult"} component={SignupResult}></Route>
 
       </Switch>
     </BrowserRouter>

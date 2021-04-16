@@ -126,6 +126,7 @@ const SignupInsure = () => {
                 }).then((res) => {
                     console.log(res.data.dataBody.access_token);
                     var userToken = res.data.dataBody.access_token;
+                    sessionStorage.setItem('userToken',res.data.dataBody.access_token);
                     var requestData = {
                         "dataBody": {
                             "z_chn_cd": "API",

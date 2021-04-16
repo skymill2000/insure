@@ -4,7 +4,7 @@ import Header from '../component/Header';
 import SearchTool from '../component/SearchTool';
 import SearchResult from '../component/SearchResult';
 import axios from 'axios'
-
+import apiCrypto from '../lib/apiCrypto';
 //LOGIC
 
 const SignupInsure = () => {
@@ -37,6 +37,13 @@ const SignupInsure = () => {
 
     }
 
+    const btnClick = () => {
+        var nexturl = `/insurePlan?username=${username}&ssnnum=${ssnnum}&phonenum=${phonenum}&ishealth=${isHealth}&q1=${q1}`;
+        sessionStorage.setItem('ssnnum', apiCrypto.ssnEncrypt(ssnnum));
+        console.log(nexturl); 
+        window.location.href = nexturl;
+    }
+
     return (
         <>
             <Header title={'보험 가입 데이터 입력'}></Header>
@@ -45,6 +52,7 @@ const SignupInsure = () => {
             <p>핸드폰</p>  <input onChange={inputChange} value={phonenum} name={'phonenum'}></input> <br/>
             <p>건강보험</p> <input onChange={inputChange} value={isHealth} name={'isHealth'}></input> <br/>
             <p>취미관련 자격증이 있습니까?</p> <input onChange={inputChange} value={q1} name={'q1'}></input>
+            <button onClick={btnClick}>입력 완료</button>
         </>
 
     );

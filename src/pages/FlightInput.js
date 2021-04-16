@@ -49,10 +49,10 @@ const FlightInput = () => {
           setdestinationLoacation(value);
        }
        if(name === 'departDate'){
-        setdestinationLoacation(value);
+          setdepartureDate(value);
          }
         if(name === 'inboundDate'){
-            setdestinationLoacation(value);
+            setinboundDate(value);
         }
 
     }
@@ -80,7 +80,7 @@ const FlightInput = () => {
                     <p>최저가 : {plan.Quotes[0].MinPrice}원</p>
                 </>
             }
-            <button onClick={() => alert('보험에 가입하시겠습니까?')}> 선택완료 </button>
+            <button onClick={() => window.location.href = "/singupInsure"}> 선택완료 </button>
         </>
 
     );

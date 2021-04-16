@@ -24,6 +24,8 @@ function App() {
         {/* practice */}
 
         <Route path={"/inputflight"} component={FlightInput}></Route>
+        <Route path={"/singupInsure"} component={FlightInput}></Route>
+
       </Switch>
     </BrowserRouter>
     </>

@@ -6,7 +6,7 @@ import cryptoMy from '../lib/apiCrypto';
 //LOGIC
 
 const SignupInsure = () => {
-
+    const [result, setResult] = useState(undefined);
     const getUserToken = () => {
         const option = {
             method: 'post',
@@ -211,7 +211,7 @@ const SignupInsure = () => {
                     }
                     axios(option)
                     .then(function (response) {
-                        console.log(response.data);
+                        setResult(response.data);
                     })
                     .catch(function (error) {
                         // handle error
@@ -253,6 +253,7 @@ const SignupInsure = () => {
         <>
             <Header title={'보험 가입 데이터 입력'}></Header>
             <button onClick={getUserToken}>api 콜</button>
+
         </>
 
     );

@@ -253,7 +253,12 @@ const SignupInsure = () => {
         <>
             <Header title={'보험 가입 데이터 입력'}></Header>
             <button onClick={getUserToken}>api 콜</button>
-
+            {result !== undefined && 
+                <>
+                    <p>{result.dataBody.pan_typ_srch_scy_ctc.scy_ctc_ins[0].ins_nm}</p>    
+                    <p>{result.dataBody.pan_typ_srch_scy_ctc.scy_ctc_ins[0].ins_nm}</p>    
+                </>
+            }
         </>
 
     );

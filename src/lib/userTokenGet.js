@@ -3,7 +3,7 @@ const { default: axios } = require("axios");
 
 module.exports = {
     getUserToken : () =>{
-        console.log(getAccessToken())
+        getAccessToken()
     }
 }
 

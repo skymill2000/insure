@@ -7,6 +7,7 @@ import AuthTest from './pages/AuthTest';
 import FlightInput from './pages/FlightInput';
 import NewsSearch from './pages/NewsSearch';
 import SignupInsure from './pages/SignupInsure';
+import SignupResult from './pages/SignupResult';
 
 function App() {
   return (

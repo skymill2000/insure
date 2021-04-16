@@ -145,29 +145,18 @@ const AuthTest = () => {
     }
 
     const getUserAccessToken = () => {
-        const option = {
-            method: 'post',
-            url: '/v1.0/cert/oauth2.0/resourceOwner',
+        axios.post('/v1.0/cert/oauth2.0/resourceOwner', {}, {
             headers: {
+                'Connection': 'keep-alive',
+                'Content-Type': 'application/json; charset=utf-8',
                 'appKey': 'l7xxe840074288574eeabb346f15f7a3d6af', 
                 'appSecret': 'f8449d6220b54dddb892a262409c3e07', 
-                'Content-Type': 'application/json; charset=utf-8',
                 'Authorization': 'Bearer ' + companyAccessToken, 
                 'ci': 'E4PIs45uiscs8quYnySoQXuZKwjB66mE3Wqvw9gRuWOqMON3FiLQt+U4ZV42Y1+prQWpFWWnbKomShR+O5dHlg==',
             }
-        }
-        axios(option)
-        .then(function (response) {
-            console.log(response.data.dataBody.access_token);
-            setuserAccessToken(response.data.dataBody.access_token);
+        }).then((res) => {
+            console.log(res)
         })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .then(function () {
-            // always executed
-        });
     }
 
     const [userSsn, setUserSsn] = useState('')

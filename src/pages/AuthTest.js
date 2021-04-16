@@ -156,6 +156,7 @@ const AuthTest = () => {
             }
         }).then((res) => {
             console.log(res)
+            setuserAccessToken(res.data.dataBody.access_token)
         })
     }
 

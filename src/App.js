@@ -6,6 +6,7 @@ import StyledComponentTest from './component/StyledComponentTest';
 import AuthTest from './pages/AuthTest';
 import FlightInput from './pages/FlightInput';
 import NewsSearch from './pages/NewsSearch';
+import SignupInsure from './pages/SignupInsure';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         {/* practice */}
 
         <Route path={"/inputflight"} component={FlightInput}></Route>
-        <Route path={"/singupInsure"} component={FlightInput}></Route>
+        <Route path={"/singupInsure"} component={SignupInsure}></Route>
 
       </Switch>
     </BrowserRouter>

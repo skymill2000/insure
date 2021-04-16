@@ -1,7 +1,8 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../component/Header';
-import apiCrypto from '../lib/apiCrypto';
+import cryptoMy from '../lib/apiCrypto';
 //LOGIC
 
 const SignupInsure = () => {
@@ -13,7 +14,6 @@ const SignupInsure = () => {
        const {name, value} = e.target;
 
     }
-
     const btnClick = () => {
         var requestData = {
             "dataBody": {
@@ -85,22 +85,31 @@ const SignupInsure = () => {
             },
             "testBody": {}
         }
-
         const option = {
             method: 'post',
             url: '/v1.0/GNI/trip_overseas/inj/wound/design',
             data : JSON.stringify(requestData),
             headers: {
-                'Authorization' : 'Bearer ' + "",
+                'Authorization' : 'Bearer e8745f30-1eee-43b8-9b76-4314eb0d5888',
                 'timestamp' : '20210218190839',
                 'ci' : 'E4PIs45uiscs8quYnySoQXuZKwjB66mE3Wqvw9gRuWOqMON3FiLQt+U4ZV42Y1+prQWpFWWnbKomShR+O5dHlg==',
                 'appKey': 'l7xxe840074288574eeabb346f15f7a3d6af', 
                 'appSecret': 'f8449d6220b54dddb892a262409c3e07', 
                 'Content-Type': 'application/json; charset=utf-8',
-                'hsKey' : apiCrypto.hsKey(JSON.stringify(requestData))
+                'hsKey' : cryptoMy.hsKey(JSON.stringify(requestData))
             }
-            //<--- 이용자 토큰 넣어주세요
         }
+        axios(option)
+        .then(function (response) {
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
     }
 
 
@@ -108,7 +117,7 @@ const SignupInsure = () => {
     return (
         <>
             <Header title={'보험 가입 데이터 입력'}></Header>
-            <button>api 콜</button>
+            <button onClick={btnClick}>api 콜</button>
         </>
 
     );

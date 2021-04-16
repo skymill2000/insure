@@ -4,6 +4,7 @@ import Hello2 from './component/Hello2';
 import ListItem from './component/ListItem';
 import StyledComponentTest from './component/StyledComponentTest';
 import AuthTest from './pages/AuthTest';
+import ConfirmCont from './pages/ConfirmCont';
 import FlightInput from './pages/FlightInput';
 import NewsSearch from './pages/NewsSearch';
 import SignupInsure from './pages/SignupInsure';
@@ -28,7 +29,7 @@ function App() {
         <Route path={"/inputflight"} component={FlightInput}></Route>
         <Route path={"/singupInsure"} component={SignupInsure}></Route>
         <Route path={"/singupResult"} component={SignupResult}></Route>
-
+        <Route path={"/confirmCont"} component={ConfirmCont}></Route>
       </Switch>
     </BrowserRouter>
     </>

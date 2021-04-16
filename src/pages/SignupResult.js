@@ -7,6 +7,7 @@ import cryptoMy from '../lib/apiCrypto';
 
 const SignupInsure = () => {
     const [result, setResult] = useState(undefined);
+    const [planId, setPlanId] = useState(undefined);
     const getUserToken = () => {
         const option = {
             method: 'post',
@@ -212,6 +213,8 @@ const SignupInsure = () => {
                     axios(option)
                     .then(function (response) {
                         setResult(response.data);
+                        setPlanId(response.data.dataBody.rsl_plan_no_each_if[0].rsl_plan_no);
+
                     })
                     .catch(function (error) {
                         // handle error
@@ -244,7 +247,7 @@ const SignupInsure = () => {
 
     }
     const btnClick = () => {
-
+        window.location.href = `/confirmCont?planId=${planId}`
     }
 
 
@@ -253,12 +256,15 @@ const SignupInsure = () => {
         <>
             <Header title={'보험 가입 데이터 입력'}></Header>
             <button onClick={getUserToken}>api 콜</button>
+            <div style={{padding : '20px'}}>
             {result !== undefined && 
                 <>
                     <p>{result.dataBody.pan_typ_srch_scy_ctc.scy_ctc_ins[0].ins_nm}</p>    
-                    <p>{result.dataBody.pan_typ_srch_scy_ctc.scy_ctc_ins[0].ins_nm}</p>    
+                    <p>{result.dataBody.pan_typ_srch_scy_ctc.tdtn_eta_nm}</p>    
                 </>
             }
+            <button onClick={btnClick}>가입 신청하기</button>
+            </div>
         </>
 
     );

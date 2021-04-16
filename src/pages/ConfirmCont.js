@@ -11,7 +11,8 @@ import axios from 'axios';
 const ConfirmCont = ({location}) => {
 
     let planId = qs.parse(location.search).planId;
-    console.log(planId)
+    let ssnnum = sessionStorage.getItem('ssnnum');
+    console.log(planId, ssnnum)
     const changeText = (e) =>{
     }
 

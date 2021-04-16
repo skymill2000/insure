@@ -10,6 +10,8 @@ import cryptoMy from '../lib/apiCrypto';
 //LOGIC
 
 const ConfirmCont = ({location}) => {
+    const [confirmData, setConfirmData] = useState(undefined);
+
     useEffect(()=>{
         startScreen();
     },[])
@@ -46,6 +48,7 @@ const ConfirmCont = ({location}) => {
         }
         axios(option).then((res) =>{
             console.log(res.data);
+            setConfirmData(res.data);
 
         })
 
@@ -55,13 +58,49 @@ const ConfirmCont = ({location}) => {
     }
 
     const clickBtn = () => {
+        const databody = {
+            "dataHeader":
+            {
+                "z_user_id":"10786830"
+            }, 
+            "dataBody":
+            {
+                "plan_no": planId,
+                "ins_rsdn_no": ssnnum,
+                "ins_oln_dcmt_no":""
+            }
+        }
+        const option = {
+            method: 'post',
+            url: '/v1.0/GNI/trip_overseas/inj/contract/cornfirm',
+            data : JSON.stringify(databody),
+            headers: {
+                'Authorization' : 'Bearer ' + sessionStorage.getItem('userToken'),
+                'timestamp' : '20210218190839',
+                'ci' : 'E4PIs45uiscs8quYnySoQXuZKwjB66mE3Wqvw9gRuWOqMON3FiLQt+U4ZV42Y1+prQWpFWWnbKomShR+O5dHlg==',
+                'appKey': 'l7xxe840074288574eeabb346f15f7a3d6af', 
+                'appSecret': 'f8449d6220b54dddb892a262409c3e07', 
+                'Content-Type': 'application/json; charset=utf-8',
+                'hsKey' : cryptoMy.hsKey(JSON.stringify(databody))
+            }
+        }
+        axios(option).then((res) =>{
+            console.log(res.data);
+            setConfirmData(res.data);
+
+        })
 
     }
 
     return (
         <>
-            <Header title={'뉴스검색'}></Header>
-
+            <Header title={'계약 확정'}></Header>
+            <button onClick={clickBtn}>확정하기</button>
+            {confirmData !== undefined && 
+                <>
+                    {confirmData.dataBody.mast_plno}
+                </>
+            }
         </>
     );
 }

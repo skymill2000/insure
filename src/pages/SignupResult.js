@@ -87,18 +87,19 @@ const SignupInsure = () => {
         }
 
         const option = {
-            // method: 'post',
-            // url: '',
-            // data : ,
-            // headers: {
-            //     'Authorization' : 'Bearer ' + "{이용자 토큰}",
-            //     'timestamp' : '20210218190839',
-            //     'ci' : 'E4PIs45uiscs8quYnySoQXuZKwjB66mE3Wqvw9gRuWOqMON3FiLQt+U4ZV42Y1+prQWpFWWnbKomShR+O5dHlg==',
-            //     'appKey': 'l7xxe840074288574eeabb346f15f7a3d6af', 
-            //     'appSecret': 'f8449d6220b54dddb892a262409c3e07', 
-            //     'Content-Type': 'application/json; charset=utf-8',
-            //     'hsKey' : {데이터 몸통 해시키 생성하기}
-            // }
+            method: 'post',
+            url: '/v1.0/GNI/trip_overseas/inj/wound/design',
+            data : JSON.stringify(requestData),
+            headers: {
+                'Authorization' : 'Bearer ' + "",
+                'timestamp' : '20210218190839',
+                'ci' : 'E4PIs45uiscs8quYnySoQXuZKwjB66mE3Wqvw9gRuWOqMON3FiLQt+U4ZV42Y1+prQWpFWWnbKomShR+O5dHlg==',
+                'appKey': 'l7xxe840074288574eeabb346f15f7a3d6af', 
+                'appSecret': 'f8449d6220b54dddb892a262409c3e07', 
+                'Content-Type': 'application/json; charset=utf-8',
+                'hsKey' : apiCrypto.hsKey(JSON.stringify(requestData))
+            }
+            //<--- 이용자 토큰 넣어주세요
         }
     }
 

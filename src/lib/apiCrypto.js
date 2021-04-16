@@ -34,23 +34,27 @@ module.exports = {
         return signed
     },
     ssnEncrypt : (ssnnum) => {
-        let algorithm = 'aes-256-cbc';
-        let serial = timeSt + appSecretKey;
+        const serial = timeSt + appSecretKey;
         let secureKey = rpad(serial, 32, '0')
         var bytes = crypto.randomBytes(20);
         let iv = crypto.randomBytes(16)
+        console.log(bytes);
         const key = crypto.pbkdf2Sync(secureKey, bytes, 70000, 32, 'sha1');
-        const cipher = crypto.createCipheriv(algorithm, key, iv);
+        const cipher = crypto.createCipheriv('aes-256-cbc', key, iv);
         cipher.setAutoPadding(false);
-        let arr = [bytes, iv];
+        console.log('b:' , bytes.toString('base64'))
+        console.log('iv:', iv.toString('base64'))
+        let encrypted = cipher.update(pkcs7Pad(ssnnum), 'utf8','base64');
+        encrypted += cipher.final('base64');
+        console.log("here :", encrypted)
+        var encBuf = Buffer.from(encrypted,'base64');
+        let arr = [bytes, iv, encBuf];
         let conBuf = Buffer.concat(arr);
         console.log(conBuf.toString('base64'));
-        let encrypted = cipher.update(pkcs7Pad(ssnnum), 'utf8','base64');
-        encrypted += conBuf.toString('base64');
-        encrypted += cipher.final('base64');
+        // encrypted += conBuf.toString('base64');
         console.log(encrypted);
-        return encrypted;
-        }
+        return conBuf.toString('base64');
+    }
 }
 console.log(caesar.encrypt(6, 'hi how are you'));
 console.log(caesar.decrypt(9, 'no nuc gxk eua'));
